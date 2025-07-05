@@ -1,0 +1,162 @@
+/* src/components/ScheduleTable.css */
+
+.schedule-table-container {
+    padding: 2rem;
+    background-color: #dae2f8;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+    overflow-x: auto;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.schedule-table th,
+.schedule-table td {
+    border: 1px solid #e0e7ff;
+    padding: 12px 0px;
+    text-align: center;
+    background-color: #ccd5fa;
+}
+
+.schedule-table thead {
+    background-color: #e0f2fe;
+}
+
+.schedule-table th {
+    color: #1e3a8a;
+    font-size: 1.5rem;
+    font-weight: 750;
+    position: relative;
+}
+
+.schedule-table td textarea {
+    color: #1e3a8a;
+    width: 92%;
+    height: 70px;
+    padding: 8px;
+    font-size: 0.97rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background-color: #f1f2f5;
+    resize: vertical;
+    transition: 0.2s ease-in-out;
+}
+
+.schedule-table td textarea:focus {
+    border-color: #6366f1;
+    outline: none;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.clear-btn {
+    /* display: block; */
+    font-size: 0.8rem;
+    color: #ef4444;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    margin-left: 8px;
+    border-radius: 20%;
+    padding: 5px 9px;
+    padding-top: 6px;
+    background-color: #dae2f8;
+    color: #1e3a8a;
+    text-decoration: none;
+    border: 1px solid #1e3a8a;
+}
+
+.clear-btn:hover {
+    color: white;
+    background-color: #1e3a8a;
+    border-color: white;
+    scale: 1.1;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.download-btn,
+.upload-btn {
+    background-color: #3b82f6;
+    color: white;
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(59, 130, 246, 0.25);
+    transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.download-btn:hover,
+.upload-btn:hover {
+    background-color: #2563eb;
+    transform: translateY(-1px);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+
+    .schedule-table th,
+    .schedule-table td {
+        font-size: 0.85rem;
+        padding: 8px 6px;
+    }
+
+    .schedule-table td textarea {
+        height: 60px;
+        font-size: 0.85rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .download-btn,
+    .upload-btn {
+        width: 90%;
+        text-align: center;
+    }
+}
+
+.highlight-clear-target {
+  outline: 2px dashed #f39c12;
+  background-color: #fffbe6;
+  cursor: pointer;
+}
+
+.popup-message {
+  background-color: #fef3c7;
+  border-left: 6px solid #f59e0b;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  font-weight: 500;
+  font-size: 15px;
+  color: #92400e;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  animation: fadeIn 0.3s ease-in;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
