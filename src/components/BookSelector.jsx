@@ -21,7 +21,7 @@ export default function BookSelector({ books, setBooks }) {
 
   return (
     <div className="book-selector-container">
-      <h2 className="book-selector-title">Select Books</h2>
+      <h2 className="book-selector-title">📖 Select Books</h2>
       <div className="book-input-row">
         <input
           type="text"

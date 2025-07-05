@@ -38,8 +38,9 @@
 }
 
 .schedule-header h2 {
-  font-size: 1.8rem;
-  color: #1f2937; /* neutral dark text */
+  font-size: 2rem;
+  font-weight: 2000;
+  color: #1e3a8a;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -77,4 +78,29 @@
     width: 100%;
     text-align: center;
   }
+}
+
+.schedule-footer {
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  font-size: 0.95rem;
+  color: #1e3a8a;
+  background-color: #cbd4f8;
+}
+
+.schedule-footer p {
+  margin: 0;
+}
+
+.footer-link {
+  color: #3b82f6;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #2563eb;
+  text-decoration: underline;
 }

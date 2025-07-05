@@ -71,52 +71,38 @@ export default function ScheduleTable({ books, startDate, endDate, scheduleData,
   };
 
   const handleDownload = () => {
-  const filteredSchedule = {};
+    const filteredSchedule = {};
 
-  for (const date in scheduleData) {
-    filteredSchedule[date] = {};
-    books.forEach(book => {
-      if (scheduleData[date].hasOwnProperty(book)) {
-        filteredSchedule[date][book] = scheduleData[date][book];
-      } else {
-        filteredSchedule[date][book] = '';
-      }
-    });
-  }
+    for (const date in scheduleData) {
+      filteredSchedule[date] = {};
+      books.forEach(book => {
+        if (scheduleData[date].hasOwnProperty(book)) {
+          filteredSchedule[date][book] = scheduleData[date][book];
+        } else {
+          filteredSchedule[date][book] = '';
+        }
+      });
+    }
 
-  const formatDate = (dateStr) => {
-    const date = new Date(dateStr);
-    const day = date.getDate();
-    const month = date.toLocaleString('default', { month: 'long' }); // "July", "August"
-    return `${day}${month}`;
-  };
-
-  const formattedStart = formatDate(startDate);
-  const formattedEnd = formatDate(endDate);
-
-  const fileName = `Schedule_${books.join(',')}_${formattedStart}_${formattedEnd}.json`;
-
-  const blob = new Blob([JSON.stringify(filteredSchedule, null, 2)], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = fileName;
-  a.click();
-  URL.revokeObjectURL(url);
-};
-
-
-
-
-  const handleUpload = (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (evt) => {
-      const parsed = JSON.parse(evt.target.result);
-      setScheduleData(parsed);
+    const formatDate = (dateStr) => {
+      const date = new Date(dateStr);
+      const day = date.getDate();
+      const month = date.toLocaleString('default', { month: 'long' }); // "July", "August"
+      return `${day}${month}`;
     };
-    reader.readAsText(file);
+
+    const formattedStart = formatDate(startDate);
+    const formattedEnd = formatDate(endDate);
+
+    const fileName = `Schedule_${books.join(',')}_${formattedStart}_${formattedEnd}.json`;
+
+    const blob = new Blob([JSON.stringify(filteredSchedule, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = fileName;
+    a.click();
+    URL.revokeObjectURL(url);
   };
 
   return (
@@ -168,12 +154,7 @@ export default function ScheduleTable({ books, startDate, endDate, scheduleData,
 
       <div className="buttons">
         <button onClick={handleDownload} className="download-btn">📥 Download</button>
-        <label className="upload-btn">
-          📤 Upload
-          <input type="file" accept=".json" onChange={handleUpload} hidden />
-        </label>
       </div>
     </div>
   );
 }
-

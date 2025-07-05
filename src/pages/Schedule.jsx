@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import './Schedule.css';
 import { useNavigate } from 'react-router-dom';
@@ -16,24 +15,37 @@ export default function Schedule() {
   }, [scheduleData]);
 
   return (
-  <div className="fade-in">
-    <div className="schedule-container">
-      <div className="schedule-inner">
-        <div className="schedule-header">
-          <h2>📅 Your Study Schedule</h2>
-          <button onClick={() => navigate('/')} className="back-btn">
-            🔙 Back to Home
-          </button>
+    <div className="fade-in">
+      <div className="schedule-container">
+        <div className="schedule-inner">
+          <div className="schedule-header">
+            <h2>📅 Your Study Schedule</h2>
+            <button onClick={() => navigate('/')} className="back-btn">
+              Back to Home
+            </button>
+          </div>
+          <ScheduleTable
+            books={books}
+            startDate={startDate}
+            endDate={endDate}
+            scheduleData={scheduleData}
+            setScheduleData={setScheduleData}
+          />
         </div>
-        <ScheduleTable
-          books={books}
-          startDate={startDate}
-          endDate={endDate}
-          scheduleData={scheduleData}
-          setScheduleData={setScheduleData}
-        />
+        <footer className="schedule-footer">
+          <p>
+            Developed by <strong>Aujla Studio</strong> for <em>CA Community</em> |{' '}
+            <a
+              href="https://www.linkedin.com/in/mohsin-raza-aujla-bsse23040"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-link"
+            >
+              Connect on LinkedIn
+            </a>
+          </p>
+        </footer>
       </div>
     </div>
-  </div>
-);
+  );
 }
